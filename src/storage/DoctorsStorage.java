@@ -27,6 +27,12 @@ public class DoctorsStorage {
         }
     }
 
+    public void printDoctors(int ok) {
+        for (int i = 0; i < size; i++) {
+            System.out.println( i + ": " + doctors[i].toString(ok) + "\n");
+        }
+    }
+
     public boolean isEmpty(DoctorModel[] arrays){
         return size == 0;
     }
@@ -52,5 +58,14 @@ public class DoctorsStorage {
         }
         return null;
     }
-    
+
+    public DoctorModel getDoctorById(int id){
+        for (int i = 0; i < size; i++) {
+            if (doctors[i].getDoctorId() == id) {
+                return doctors[i];
+            }
+        }
+        return null;
+    }
+
 }

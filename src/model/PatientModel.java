@@ -16,8 +16,8 @@ public class PatientModel extends PersonModel{
     public PatientModel() {
 
     }
-    public PatientModel(int patientID, String name, String surname, int age, String passportCode, PersonType personType, String phoneNumber, DoctorModel doctor, PatientType patientType, DiagnosisModel diagnosis, Date registrationDate) {
-        super(name, surname, age, passportCode, personType);
+    public PatientModel(int patientID, String name, String surname, int age, String passportCode, PersonType personType, String password, String phoneNumber, DoctorModel doctor, PatientType patientType, DiagnosisModel diagnosis, Date registrationDate) {
+        super(name, surname, age, passportCode, personType, password);
         this.patientID = patientID;
         this.phoneNumber = phoneNumber;
         this.doctor = doctor;

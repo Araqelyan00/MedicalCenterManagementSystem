@@ -13,8 +13,8 @@ public class Visitor extends PersonModel{
     public Visitor() {
 
     }
-    public Visitor( int id, String name, String surname, int age, String pasportCode, PersonType personType, PatientModel patient, Date visitDate) {
-        super(name, surname, age, pasportCode, personType);
+    public Visitor( int id, String name, String surname, int age, String passportCode, PersonType personType, String password, PatientModel patient, Date visitDate) {
+        super(name, surname, age, passportCode, personType, password);
         this.id = id;
         this.patient = patient;
         this.visitDate = visitDate;

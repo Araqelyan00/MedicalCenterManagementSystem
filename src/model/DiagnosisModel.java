@@ -3,6 +3,7 @@ package model;
 import java.util.Date;
 
 public class DiagnosisModel {
+    private int diagnosisID;
     private String doctorName;
     private Date dateOfDiagnosis;
     private String diagnosisDescription;
@@ -11,10 +12,19 @@ public class DiagnosisModel {
 
     }
 
-    public DiagnosisModel(String doctorName, Date dateOfDiagnosis, String diagnosisDescription) {
+    public DiagnosisModel(int diagnosisID, String doctorName, Date dateOfDiagnosis, String diagnosisDescription) {
+        this.diagnosisID = diagnosisID;
         this.doctorName = doctorName;
         this.dateOfDiagnosis = dateOfDiagnosis;
         this.diagnosisDescription = diagnosisDescription;
+    }
+
+    public int getDiagnosisID() {
+        return diagnosisID;
+    }
+
+    public void setDiagnosisID(int diagnosisID) {
+        this.diagnosisID = diagnosisID;
     }
 
     public String getDoctorName() {
@@ -43,7 +53,7 @@ public class DiagnosisModel {
 
     @Override
     public String toString() {
-        return "Diagnosis: " +
+        return "Diagnosis: " + getDiagnosisID() +
                 "\n Description : " + getDiagnosisDescription() +
                 "\n Date of Diagnosis : " + getDateOfDiagnosis();
     }

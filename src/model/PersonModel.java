@@ -8,17 +8,20 @@ public class PersonModel {
     private static int age;
     private static String passportCode;
     private static PersonType personType;
+    private static String password;
+
 
     public PersonModel() {
 
     }
 
-    public PersonModel(String name, String surname, int age, String passportCode, PersonType personType) {
-        PersonModel.name = name;
-        PersonModel.surname = surname;
-        PersonModel.age = age;
-        PersonModel.passportCode = passportCode;
-        PersonModel.personType = personType;
+    public PersonModel(String name, String surname, int age, String passportCode, PersonType personType, String password) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.passportCode = passportCode;
+        this.personType = personType;
+        this.password = password;
     }
 
     public String getName() {
@@ -59,6 +62,14 @@ public class PersonModel {
 
     public void setPersonType(PersonType personType) {
         PersonModel.personType = personType;
+    }
+
+    public static String getPassword() {
+        return password;
+    }
+
+    public static void setPassword(String password) {
+        PersonModel.password = password;
     }
 
     @Override

@@ -12,7 +12,7 @@ public interface Commands {
     String UPDATE_PATIENTS_DIAGNOSIS_BY_ID = "2";
     String UPDATE_PATIENTS_TYPE_BY_ID = "3";
     String PRINT_MY_PATIENTS = "4";
-    String DELETE_PATIENT = "5";
+    String DELETE_PATIENT_BY_ID = "5";
 
     //        Patient commands
     String PRINT_ALL_DOCTORS = "1";
@@ -28,6 +28,13 @@ public interface Commands {
     String PRINT_PATIENTS_LIST = "5";
     String PRINT_VISITORS_LIST = "6";
 
+//            Visitor commands
+    String PRINT_INFO_ABOUT_PATIENT = "1";
+    String PRINT_DOCTOR_INFO = "2";
+
+//            Person commands
+    String SELECT_DOCTOR_FOR_CONSULTATION_BY_ID = "2";
+    String SELECT_PATIENT_FOR_VISIT_BY_ID = "3";
 
     static void printLoginCommands() {
         System.out.println("Input " + EXIT + " to exit");
@@ -53,7 +60,7 @@ public interface Commands {
         System.out.println("Input " + UPDATE_PATIENTS_DIAGNOSIS_BY_ID + " to update patients diagnosis");
         System.out.println("Input " + UPDATE_PATIENTS_TYPE_BY_ID + " to update patients type information");
         System.out.println("Input " + PRINT_MY_PATIENTS + " to print my patients list");
-        System.out.println("Input " + DELETE_PATIENT + " to discharge the patient");
+        System.out.println("Input " + DELETE_PATIENT_BY_ID + " to discharge the patient");
         System.out.print("\nInput command :");
     }
 
@@ -64,5 +71,20 @@ public interface Commands {
         System.out.println("Input " + GET_MY_DIAGNOSIS + " to get my diagnosis");
         System.out.println("Input " + REGISTER_VISIT + " to register a visit");
         System.out.print("\nInput command :");
+    }
+
+    static void printVisitorsCommands() {
+        System.out.println("Input " + EXIT + " to exit");
+        System.out.println("Input " + PRINT_INFO_ABOUT_PATIENT + " to print info about patient");
+        System.out.println("Input " + PRINT_DOCTOR_INFO + " to print doctor info");
+        System.out.print("\nInput command :");
+    }
+
+    static void printPersonsCommands() {
+        System.out.println("Input " + EXIT + " to exit");
+        System.out.println("Input " + PRINT_DOCTORS_LIST + " to print doctors list");
+        System.out.println("Input " + SELECT_DOCTOR_FOR_CONSULTATION_BY_ID + " to select doctor for consultation");
+        System.out.println("Input " + SELECT_PATIENT_FOR_VISIT_BY_ID + "to visit patient");
+        System.out.println("\nInput command :");
     }
 }

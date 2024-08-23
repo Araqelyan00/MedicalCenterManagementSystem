@@ -1,5 +1,6 @@
 package storage;
 
+import model.DoctorModel;
 import model.PatientModel;
 
 public class PatientsStorage {
@@ -51,5 +52,24 @@ public class PatientsStorage {
             }
         }
         return null;
+    }
+
+
+    public PatientModel getPatientById(int id){
+        for (int i = 0; i < size; i++) {
+            if (patients[i].getPatientID() == id) {
+                return patients[i];
+            }
+        }
+        return null;
+    }
+
+    public void printPatientsByDoctor(DoctorModel doctor) {
+        int counter = 1;
+        for (int i = 0; i < size; i++) {
+            if (patients[i].getDoctor().equals(doctor)) {
+                System.out.println(counter++ + ": " + patients[i].toString() + "\n");
+            }
+        }
     }
 }

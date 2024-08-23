@@ -33,7 +33,7 @@ public class VisitorsStorage {
 
     public void deletePatientById(int id){
         if (isEmpty(new Visitor[size])) {
-            System.out.println("Patient does not exist");
+            System.out.println("Visitor does not exist");
         } else {
             for (int i = 0; i < size; i++) {
                 if(visitors[i].getId() == id){
@@ -42,5 +42,15 @@ public class VisitorsStorage {
             }
             size--;
         }
+    }
+
+
+    public Visitor getVisitorByPassportNumber(String passportNumber){
+        for (int i = 0; i < size; i++) {
+            if (visitors[i].getPassportCode().equals(passportNumber)) {
+                return visitors[i];
+            }
+        }
+        return null;
     }
 }
