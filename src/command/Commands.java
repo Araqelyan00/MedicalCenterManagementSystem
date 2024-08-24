@@ -84,7 +84,7 @@ public interface Commands {
         System.out.println("Input " + EXIT + " to exit");
         System.out.println("Input " + PRINT_DOCTORS_LIST + " to print doctors list");
         System.out.println("Input " + SELECT_DOCTOR_FOR_CONSULTATION_BY_ID + " to select doctor for consultation");
-        System.out.println("Input " + SELECT_PATIENT_FOR_VISIT_BY_ID + "to visit patient");
-        System.out.println("\nInput command :");
+        System.out.println("Input " + SELECT_PATIENT_FOR_VISIT_BY_ID + " to visit patient");
+        System.out.print("\nInput command :");
     }
 }

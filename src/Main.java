@@ -64,6 +64,7 @@ public class Main {
     private static void initData() throws ParseException {
 //        ADMIN
         PersonModel admin = new PersonModel("Admin", "Admin", 30, "AT0092113", PersonType.ADMINISTRATOR, "a001");
+        personsStorage.add(admin);
 //        DOCTORS
         DoctorModel doctor1 = new DoctorModel(101, "Simon", "Simonyan", 35, "AT1412543", PersonType.DOCTOR, "d001", "098000001", DoctorSpecialization.CARDIOLOGY);
         DoctorModel doctor2 = new DoctorModel(102, "Kim", "Kirakosyan", 32, "AT1223575", PersonType.DOCTOR, "d002", "098000002", DoctorSpecialization.DERMATOLOGY);
@@ -121,15 +122,15 @@ public class Main {
         room1Members.add(patient2);
 
         List<PatientModel> room2Members = new ArrayList<>();
-        room1Members.add(patient3);
-        room1Members.add(patient6);
+        room2Members.add(patient3);
+        room2Members.add(patient6);
 
         List<PatientModel> room3Members = new ArrayList<>();
-        room1Members.add(patient4);
-        room1Members.add(patient8);
+        room3Members.add(patient4);
+        room3Members.add(patient8);
 
         List<PatientModel> room4Members = new ArrayList<>();
-        room1Members.add(patient5);
+        room4Members.add(patient5);
 
         List<PatientModel> room5Members = new ArrayList<>();
         room1Members.add(patient7);
@@ -158,7 +159,7 @@ public class Main {
         System.out.print("Enter your surname: ");
         String surname = scanner.nextLine();
         System.out.print("Enter your age: ");
-        int age = scanner.nextInt();
+        int age = Integer.parseInt(scanner.nextLine());
         System.out.print("Enter your passport number: ");
         String passportNumber = scanner.nextLine();
         if (doctorsStorage.getDoctorByPassportNumber(passportNumber) != null &&
@@ -186,12 +187,12 @@ public class Main {
         DoctorModel doctor = doctorsStorage.getDoctorByPassportNumber(passportNumber);
         PatientModel patient = patientsStorage.getPatientByPassportNumber(passportNumber);
         if (person == null && doctor == null && patient == null && visitor == null) {
-            System.out.println("Invalid username.");
+            System.out.println("Invalid passport number.");
         } else {
             System.out.print("Enter your password: ");
             String password = scanner.nextLine();
             if (person != null) {
-                if (person.getPassword().equals(password)) {
+                if (PersonModel.getPassword().equals(password)) {
                     currentPerson = person;
                     if (person.getPersonType().equals(PersonType.ADMINISTRATOR)) {
                         loginAdmin();
@@ -202,21 +203,21 @@ public class Main {
                 }
             } else if (doctor != null) {
                 currentDoctor = doctor;
-                if (doctor.getPassword().equals(password)) {
+                if (PersonModel.getPassword().equals(password)) {
                     loginDoctor();
                 } else {
                     System.out.println("Invalid password for your doctor account.");
                 }
             } else if (patient != null) {
                 currentPatient = patient;
-                if (patient.getPassword().equals(password)) {
+                if (PersonModel.getPassword().equals(password)) {
                     loginPatient();
                 } else {
                     System.out.println("Invalid password for your patient account.");
                 }
             } else if (visitor != null) {
                 currentVisitor = visitor;
-                if (visitor.getPassword().equals(password)) {
+                if (PersonModel.getPassword().equals(password)) {
                     loginVisitor();
                 } else {
                     System.out.println("Invalid password for your visitor account.");
@@ -425,7 +426,7 @@ public class Main {
         int patientId = scanner.nextInt();
         PatientModel patient = patientsStorage.getPatientById(patientId);
         if (patient != null) {
-            System.out.println("Ok. Take Info about patient" + patient.toString());
+            System.out.println("Ok. Take Info about patient" + patient);
             System.out.print("Now input new type: ");
             int command = scanner.nextInt();
             PatientType x = THE_DISEASE_HAS_JUST_OCCURRED;
@@ -457,7 +458,7 @@ public class Main {
         int patientId = scanner.nextInt();
         PatientModel patient = patientsStorage.getPatientById(patientId);
         if (patient != null) {
-            System.out.println("Ok. Take Info about patient" + patient.toString());
+            System.out.println("Ok. Take Info about patient" + patient);
             System.out.print("Now input new diagnosis description: ");
             int id = rand.nextInt();
             String diagnosisDescription = scanner.nextLine();
@@ -474,7 +475,7 @@ public class Main {
         int patientId = scanner.nextInt();
         PatientModel patient = patientsStorage.getPatientById(patientId);
         if (patient != null) {
-            System.out.println("Ok. Take Info about " + patient.toString());
+            System.out.println("Ok. Take Info about " + patient);
         } else {
             System.out.println("Invalid patient id !");
         }
@@ -525,7 +526,7 @@ public class Main {
                     System.out.println("Invalid command!");
             }
             DoctorModel newDoctor = new DoctorModel(newDoctorId,pers.getName(),pers.getSurname(),
-                    pers.getAge(),pers.getPassportCode(),PersonType.DOCTOR, pers.getPassword(),phoneNumber, x);
+                    pers.getAge(),pers.getPassportCode(),PersonType.DOCTOR, PersonModel.getPassword(),phoneNumber, x);
 
             doctorsStorage.add(newDoctor);
             System.out.println("Doctor with id " + newDoctorId + "successfully added.");
@@ -553,7 +554,7 @@ public class Main {
             Date registrationDate = new Date();
             Visitor visitor = new Visitor(newVisitorId,currentPerson.getName(), currentPerson.getSurname(),
                     currentPerson.getAge(),currentPerson.getPassportCode(),PersonType.VISITOR,
-                    currentPerson.getPassword(),patientsStorage.getPatientById(id), registrationDate);
+                    PersonModel.getPassword(),patientsStorage.getPatientById(id), registrationDate);
             System.out.println("Ok, you are just registered as Visitor.\nYou can visit patient.");
         }
     }
