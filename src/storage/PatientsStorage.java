@@ -24,7 +24,7 @@ public class PatientsStorage {
 
     public void printPatients() {
         for (int i = 0; i < size; i++) {
-            System.out.println( i + ": " + patients[i].toString() + "\n");
+            System.out.println(patients[i].toString() + "\n");
         }
     }
 

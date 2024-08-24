@@ -23,7 +23,7 @@ public class DoctorsStorage {
 
     public void printDoctors() {
         for (int i = 0; i < size; i++) {
-            System.out.println( i + ": " + doctors[i].toString() + "\n");
+            System.out.println(doctors[i].toString() + "\n");
         }
     }
 

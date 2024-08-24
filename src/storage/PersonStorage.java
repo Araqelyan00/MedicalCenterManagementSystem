@@ -23,7 +23,7 @@ public class PersonStorage {
 
     public void printPersons() {
         for (int i = 0; i < size; i++) {
-            System.out.println( i + ": " + persons[i].toString() + "\n");
+            System.out.println(persons[i].toString() + "\n");
         }
     }
 

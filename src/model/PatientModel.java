@@ -5,8 +5,14 @@ import enums.PersonType;
 
 import java.util.Date;
 
-public class PatientModel extends PersonModel{
+public class PatientModel{
     private int patientID;
+    private String name;
+    private String surname;
+    private int age;
+    private String passportCode;
+    private PersonType personType;
+    private String password;
     private String phoneNumber;
     private DoctorModel doctor;
     private PatientType patientType;
@@ -17,8 +23,13 @@ public class PatientModel extends PersonModel{
 
     }
     public PatientModel(int patientID, String name, String surname, int age, String passportCode, PersonType personType, String password, String phoneNumber, DoctorModel doctor, PatientType patientType, DiagnosisModel diagnosis, Date registrationDate) {
-        super(name, surname, age, passportCode, personType, password);
         this.patientID = patientID;
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.passportCode = passportCode;
+        this.personType = personType;
+        this.password = password;
         this.phoneNumber = phoneNumber;
         this.doctor = doctor;
         this.patientType = patientType;
@@ -26,9 +37,6 @@ public class PatientModel extends PersonModel{
         this.registrationDate = registrationDate;
     }
 
-    public String getName(){
-        return super.getName();
-    }
 
     public int getPatientID() {
         return patientID;
@@ -36,6 +44,54 @@ public class PatientModel extends PersonModel{
 
     public void setPatientID(int patientID) {
         this.patientID = patientID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getPassportCode() {
+        return passportCode;
+    }
+
+    public void setPassportCode(String passportCode) {
+        this.passportCode = passportCode;
+    }
+
+    public PersonType getPersonType() {
+        return personType;
+    }
+
+    public void setPersonType(PersonType personType) {
+        this.personType = personType;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getPhoneNumber() {

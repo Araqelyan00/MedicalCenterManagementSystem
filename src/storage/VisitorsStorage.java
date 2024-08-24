@@ -23,7 +23,7 @@ public class VisitorsStorage {
 
     public void printVisitors() {
         for (int i = 0; i < size; i++) {
-            System.out.println( i + ": " + visitors[i].toString() + "\n");
+            System.out.println(visitors[i].toString() + "\n");
         }
     }
 
